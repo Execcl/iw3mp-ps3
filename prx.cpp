@@ -1,9 +1,9 @@
 #include "stdafx.h"
 
 #pragma diag_suppress 77
-SYS_MODULE_INFO(t4mp, 0, 1, 1);
-SYS_MODULE_START(t4mp_start);
-SYS_MODULE_STOP(t4mp_stop);
+SYS_MODULE_INFO(iw3mp, 0, 1, 1);
+SYS_MODULE_START(iw3mp_start);
+SYS_MODULE_STOP(iw3mp_stop);
 
 variables* g_vars;
 
@@ -48,7 +48,7 @@ int sys_io_cellPadGetData(unsigned int port, CellPadData* data)
 	return returnValue;
 }
 
-extern "C" int t4mp_start(void)
+extern "C" int iw3mp_start(void)
 {
 	g_input = CInput();
 	g_vars = new variables();
@@ -71,7 +71,7 @@ extern "C" int t4mp_start(void)
 	return SYS_PRX_START_OK;
 }
 
-extern "C" int t4mp_stop(void)
+extern "C" int iw3mp_stop(void)
 {
 	memset(g_vars, 0, sizeof(variables));
 	memset(g_menu, 0, sizeof(menu));
